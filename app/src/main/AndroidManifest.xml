@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.bryanpc.notetaker"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="22" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/note_man1"
+        android:label="@string/app_name">
+
+        <activity
+            android:name=".sync.MainActivity"
+            android:label= "@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".sync.AllNotes"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_all_notes"
+            android:parentActivityName=".sync.MainActivity"
+            android:screenOrientation="portrait" >
+
+        </activity>
+        <activity
+            android:name=".sync.AddNote"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/title_activity_add_note"
+            android:parentActivityName=".sync.MainActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".sync.UpdateNote"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"
+            android:parentActivityName=".sync.MainActivity"
+            android:label="@string/title_activity_update_note" >
+        </activity>
+        <activity
+            android:name=".sync.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".sync.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.bryanpc.notetaker.sync.MainActivity" />
+        </activity>
+        <provider
+            android:name=".data.NoteProvider"
+            android:authorities="com.example.provider.NoteProv" >
+        </provider>
+    </application>
+
+</manifest>
